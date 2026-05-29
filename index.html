@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="light" lang="sr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MTP Smerokviz | Početna</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#dcb8ff",
+                        "background": "#faf8ff",
+                        "on-secondary-fixed": "#2c0051",
+                        "surface-bright": "#faf8ff",
+                        "surface-container": "#eaedff",
+                        "primary-container": "#0057ff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-container": "#fffbff",
+                        "on-tertiary-container": "#9af9ff",
+                        "inverse-surface": "#283044",
+                        "on-secondary-fixed-variant": "#6700b5",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed-variant": "#003ab2",
+                        "on-primary-fixed": "#001550",
+                        "tertiary-fixed": "#63f7ff",
+                        "outline": "#737688",
+                        "primary": "#0043c8",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#dae2fd",
+                        "secondary-fixed": "#efdbff",
+                        "primary-fixed": "#dce1ff",
+                        "tertiary-container": "#00757a",
+                        "on-background": "#131b2e",
+                        "surface-container-low": "#f2f3ff",
+                        "inverse-on-surface": "#eef0ff",
+                        "tertiary": "#005a5e",
+                        "secondary-container": "#9c42f4",
+                        "on-tertiary-fixed-variant": "#004f53",
+                        "surface": "#faf8ff",
+                        "on-tertiary-fixed": "#002021",
+                        "tertiary-fixed-dim": "#00dce5",
+                        "outline-variant": "#c3c5d9",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#004ee7",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-primary": "#b6c4ff",
+                        "surface-variant": "#dae2fd",
+                        "secondary": "#821dda",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#434656",
+                        "on-surface": "#131b2e",
+                        "surface-container-high": "#e2e7ff",
+                        "on-primary-container": "#e5e8ff",
+                        "surface-dim": "#d2d9f4",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "stack-sm": "12px",
+                        "gutter": "24px",
+                        "margin-desktop": "48px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "stack-lg": "48px",
+                        "stack-md": "24px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "button-text": ["Montserrat"],
+                        "label-md": ["Inter"],
+                        "headline-lg-mobile": ["Montserrat"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Montserrat"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["Montserrat"],
+                        "headline-lg": ["Montserrat"]
+                    },
+                    "fontSize": {
+                        "button-text": ["16px", {"lineHeight": "20px", "fontWeight": "700"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 20px rgba(0, 67, 200, 0.3);
+        }
+        @keyframes pulse-soft {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.9; }
+        }
+        .animate-pulse-soft {
+            animation: pulse-soft 2s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-inverse-surface/60 backdrop-blur-[20px] border-b border-white/10 dark:border-white/5 shadow-[0_8px_32px_rgba(0,67,200,0.1)] dark:shadow-none">
+<div class="flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-black text-primary dark:text-primary-fixed">MTP Smerokviz</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-button-text text-button-text text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary dark:border-secondary-fixed-dim pb-1 hover:scale-105 transition-transform duration-200" href="/">Početna</a>
+<a class="font-button-text text-button-text text-on-surface dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:scale-105 transition-transform duration-200" href="/smerovi">Smerovi</a>
+<a class="font-button-text text-button-text text-on-surface dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:scale-105 transition-transform duration-200" href="/kviz">Kviz</a>
+<a class="font-button-text text-button-text text-on-surface dark:text-on-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors hover:scale-105 transition-transform duration-200" href="/upis">Upis</a>
+</div>
+<button onclick="window.location.href='https://www.metropolitan.ac.rs/';" class="bg-primary text-on-primary px-6 py-2 rounded-full font-button-text text-button-text hover:scale-105 transition-transform duration-200 active:scale-95 glow-button">
+                Prijavi se
+            </button>
+</div>
+</nav>
+<!-- SideNavBar (Mobile) -->
+<div class="fixed inset-y-0 left-0 w-64 z-[60] bg-surface/90 backdrop-blur-xl border-r border-white/20 shadow-2xl flex flex-col p-6 gap-4 transform -translate-x-full md:hidden transition-transform duration-300" id="mobile-nav">
+<div class="mb-8">
+<div class="font-headline-md text-headline-md font-bold text-primary">Metropolitan</div>
+<div class="font-body-lg text-sm text-on-surface-variant">Budućnost počinje ovde</div>
+</div>
+<a class="bg-primary-container text-on-primary-container rounded-xl flex items-center p-3 gap-3 font-body-lg text-body-lg" href="#">
+<span class="material-symbols-outlined">home</span> Početna
+        </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-xl flex items-center p-3 gap-3 font-body-lg text-body-lg hover:translate-x-2 transition-transform" href="#">
+<span class="material-symbols-outlined">school</span> Smerovi
+        </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-xl flex items-center p-3 gap-3 font-body-lg text-body-lg hover:translate-x-2 transition-transform" href="#">
+<span class="material-symbols-outlined">quiz</span> Kviz
+        </a>
+<a class="text-on-surface-variant hover:bg-surface-container-high rounded-xl flex items-center p-3 gap-3 font-body-lg text-body-lg hover:translate-x-2 transition-transform" href="#">
+<span class="material-symbols-outlined">how_to_reg</span> Upis
+        </a>
+<button class="mt-auto bg-primary text-on-primary px-6 py-3 rounded-full font-button-text text-button-text">
+            Prijavi se
+        </button>
+</div>
+<!-- Main Content Canvas -->
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center overflow-hidden px-margin-mobile md:px-margin-desktop py-stack-lg">
+<!-- Background Atmospheric Effects -->
+<div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute bottom-[-10%] left-[-10%] w-[400px] h-[400px] bg-secondary/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="max-w-container-max mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<!-- Text Content -->
+<div class="lg:col-span-7 z-10 space-y-stack-md">
+<div class="inline-flex items-center px-4 py-1.5 rounded-full bg-secondary-container/10 border border-secondary/20 text-secondary font-label-md text-label-md mb-4">
+<span class="material-symbols-outlined text-[18px] mr-2">stars</span>
+                        Otkrij svoj put danas
+                    </div>
+<h1 class="font-headline-lg-mobile md:font-display-lg text-headline-lg-mobile md:text-display-lg text-on-background max-w-[800px]">
+                        Ne znaš koji <span class="text-primary italic">smer</span> je za tebe?
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[600px] leading-relaxed">
+                        Izbor buduće karijere je jedan od najvećih izazova. Naša platforma ti pomaže da kroz interaktivni kviz i detaljne opise fakulteta pronađeš idealno mesto za tvoj razvoj.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4 pt-4">
+<button onclick="window.location.href='/kviz';" class="animate-pulse-soft bg-primary text-on-primary px-8 py-4 rounded-xl font-button-text text-button-text hover:scale-105 transition-all duration-300 shadow-[0_10px_20px_-10px_rgba(0,67,200,0.5)] flex items-center justify-center gap-2">
+                            Uradi Kviz
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button onclick="window.location.href='/smerovi'; "class="glass-card text-primary border-primary/30 border px-8 py-4 rounded-xl font-button-text text-button-text hover:bg-primary/5 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2">
+                            Istraži Smerove
+                            <span class="material-symbols-outlined">explore</span>
+</button>
+</div>
+<div class="pt-8 flex items-center gap-6">
+<div class="flex -space-x-3">
+<img class="w-10 h-10 rounded-full border-2 border-background" data-alt="A close-up portrait of a cheerful diverse college student smiling outdoors on a sun-drenched modern university campus. The lighting is soft and golden, emphasizing a clean and high-energy academic-tech atmosphere with vibrant blues and purples in the blurred background. The style is modern, professional, and full of youthful optimism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfMK0J3z9c9K8gXP4ZNT09onPS8rlTxCLYFAUEVveJKJTod_kO38e9YXFavkKVIGq1CQ1_uNk8b4V1Z51TFNzcd6UBbGswM1qE5gUEJV3mLw55UDR-nwzrcr25UiopLPbLlrLPuaAEmqbHX0vHy0krMo8FFA3G4gSI9ahjj96h95qcaTboy7odj2z4Kj0ESkeh4Dt1G7Bh1MkAnesG-PRHXIpJBJO9XvRdoOHb7ZNu11RfTmGSn7BIJrFtl_e-Cnq5M7G0Oek1JQ0n"/>
+<img class="w-10 h-10 rounded-full border-2 border-background" data-alt="A portrait of a young female student with glasses looking confidently at the camera within a high-tech university library setting. The image features a bright, glassmorphic aesthetic with soft-focus books and glowing digital screens in the background. The color palette consists of cool slate and vibrant primary blues, creating a sense of digital innovation and academic excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAurfvP2LM_CuJOkJHYoF8VgdlHcRJ_4WyYQ0XoGaCCmIXA3rFIryTcgFNDIgOQWfh-h4az8UAqgSP6voCOlX8OhRZXbctk5QeBiYQXZOiPdtIbtfCsRnGntrbTtI05yw4ppUPva0ru0wsFhc0qeG13fXEKekaaM4UL2VfqaQc5euKWzWazF8r9xWGJUNuLTTdDjSqKJ1tjWS0_H2YMy9piRlLUBiwQzGRFtliUwtdU15OyLYfZPTK-zZP5YqDOUKcXo109idcwH_Zp"/>
+<img class="w-10 h-10 rounded-full border-2 border-background" data-alt="A professional headshot of a motivated male student standing in a minimalist, glass-walled corridor of a modern tech university. The lighting is high-key and airy, typical of a light-mode UI design. Accents of electric purple and teal illuminate the scene subtly, reflecting a tech-forward university branding and a motivating, futuristic mood." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOw0wNk39oqyoU0s7c125_OZV_E8bZpl1Uv4UeM4MkaImQRDCJHdcG8SHsQX-haHUOLjwY5oqF-aaEqAwP1StyxA8nbMim_QDuf7jArlb7sqvU1Nb_HbdSFqdc9UpXq5OE3NBBL5PS5MQNGuL-3WWVFMdbbcNvRNsX8yQXn3K_PHpk5rBToZWn4mLWaSh6TZnXMQglklmfUB9-ZUv3iJ72Fuv9pImVrpUHVnvl7haXB3_omnB2d5tmu1fRf5K3z1dhOzr00DTwjdPK"/>
+</div>
+<p class="font-label-md text-label-md text-on-surface-variant">
+<span class="font-bold text-primary">2,500+</span> studenata je već pronašlo svoj smer
+                        </p>
+</div>
+</div>
+<!-- Visual Element: Bento Hero Grid -->
+<div class="lg:col-span-5 grid grid-cols-2 gap-4 h-[500px]">
+<div class="glass-card rounded-3xl p-6 flex flex-col justify-end overflow-hidden group relative">
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40 group-hover:scale-110 transition-transform duration-500" data-alt="A detailed view of high-tech laboratory equipment in a modern engineering university department, featuring glowing LED indicators and sleek metallic surfaces. The environment is clean and sterile, bathed in a sophisticated palette of deep navy and bright white with electric blue light reflections. The composition suggests advanced technological research and futuristic academic possibilities." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjg8PXzKWWckKISzmHa1ULTymAgW40M2uCwWnBrYw6mHacbqDSJ2IZ7ycJtKr2pFY3ivjPN2Hx185ncKroh_icCf1cLy3yQhEeR0v1Ke0wt5g5tWdi3hG-BsvjuiLJ6IR7y4cjKJR5RN4jtNAJSG1HEMCdBNk3FU7K81hSZUA2hw4_nk8G3VBHoBiaUj1w6psLkIilxUJhyZLdvleccm6aB5oN2b8tBTGXrdkSqB2PiWXO0AoQkQrl1sE2tg8YXT6_nNVNK3tkkQ7r"/>
+<span class="material-symbols-outlined text-primary mb-2 text-3xl">computer</span>
+<h3 class="font-headline-md text-lg">Inženjerstvo</h3>
+<p class="text-sm opacity-70">Kodiraj budućnost</p>
+</div>
+<div class="space-y-4">
+<div class="glass-card rounded-3xl p-6 h-[240px] flex flex-col justify-end bg-secondary/10 relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30 group-hover:scale-110 transition-transform duration-500" data-alt="A vibrant and artistic display of digital design tools and abstract colorful canvases in a creative university studio. The lighting is dynamic and high-contrast, featuring intense electric purples and teals. The visual style is modern glassmorphism, evoking excitement and creativity for prospective design students in a tech-forward academic environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOXvp6O96124ltA6JjvIzKKPMv-gd9-xcqxXBx5R6FZmbPw7ntxT7sLY-gIYQVvETBdgHxOq9m-UCzqitF3e3QbuIiUFht42Z1Lva1hctbG89fFLV5M0ri5nrhpL9Vo19vMMURIkvn53WtONx5gRmu-su4OKazPJh075835xH4oL-_xGSrHB82NKUgPJzJcEdCIA2OBLnzClyld1j7poLTv8wYQ3qURd8sJ0kNk1169GifFrz38j-bz7sHEGlcOyptfSRitMh214V5"/>
+<span class="material-symbols-outlined text-secondary mb-2 text-3xl">palette</span>
+<h3 class="font-headline-md text-lg">Dizajn</h3>
+<p class="text-sm opacity-70">Kreiraj vizuelno</p>
+</div>
+<div class="glass-card rounded-3xl p-6 h-[244px] flex flex-col justify-end bg-tertiary-container/10 relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30 group-hover:scale-110 transition-transform duration-500" data-alt="A sleek and modern business meeting room with minimalist glass tables and large digital data visualizations on wall-mounted screens. The color palette is a professional mix of deep slate, crisp white, and subtle corporate blue accents. The atmosphere is high-energy and forward-thinking, capturing the essence of a modern business and management faculty." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtGvckpiyHio2cTZGP2NdvgcDN0Sp-1IpQIJLPT-KWowDFSRvWLy0pMiBDNEg8wEVW9d13DxEh46q4cUQn7OZjzTCBX7hVfXyZDbVl7rS9BV_q4lyjd3xSitrMgowgK9yQyE45NlptY02DLLSBLyQPd_Svwd1evjWxUDktjPq0ZNQdgShSG5k0lYkcR2vPwXhcBAvDs9NE0ya6AKyXqJvIykJWgQEf4QkBQahxUFOXcz4N7W1QNx3DXb2heXxJqvB-SGtSxPEWoAJh"/>
+<span class="material-symbols-outlined text-tertiary mb-2 text-3xl">trending_up</span>
+<h3 class="font-headline-md text-lg">Biznis</h3>
+<p class="text-sm opacity-70">Upravljaj inovacijama</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Problem/Solution Section -->
+<section class="py-stack-lg px-margin-mobile md:px-margin-desktop bg-surface-container-low/30">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-4">Kako ti pomažemo?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[700px] mx-auto">
+                        Razvili smo sistem koji uklanja stres iz procesa odabira fakulteta. Fokusiraj se na svoje ambicije, mi ćemo naći put.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Feature 1 -->
+<div class="glass-card p-8 rounded-3xl border-l-4 border-l-primary hover:translate-y-[-8px] transition-all duration-300">
+<div class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">quiz</span>
+</div>
+<h4 class="font-headline-md text-xl mb-3">Interaktivni Kviz</h4>
+<p class="font-body-md text-on-surface-variant">
+                            Algoritam zasnovan na tvojim interesovanjima, veštinama i ciljevima predlaže top 3 smera koja ti najviše odgovaraju.
+                        </p>
+</div>
+<!-- Feature 2 -->
+<div class="glass-card p-8 rounded-3xl border-l-4 border-l-secondary hover:translate-y-[-8px] transition-all duration-300">
+<div class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-secondary text-3xl">visibility</span>
+</div>
+<h4 class="font-headline-md text-xl mb-3">Transparentni Uvid</h4>
+<p class="font-body-md text-on-surface-variant">
+                            Pogledaj realne projekte, predmete i karijerne puteve svakog smera pre nego što doneseš finalnu odluku.
+                        </p>
+</div>
+<!-- Feature 3 -->
+<div class="glass-card p-8 rounded-3xl border-l-4 border-l-tertiary hover:translate-y-[-8px] transition-all duration-300">
+<div class="w-14 h-14 rounded-2xl bg-tertiary/10 flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-tertiary text-3xl">support_agent</span>
+</div>
+<h4 class="font-headline-md text-xl mb-3">Podrška 1-na-1</h4>
+<p class="font-body-md text-on-surface-variant">
+                            Imaš dodatna pitanja? Naši savetnici su tu da ti pomognu u svakom koraku procesa upisa i izbora.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-stack-lg bg-surface-container-lowest dark:bg-inverse-surface border-t border-outline-variant/30">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-stack-md max-w-container-max mx-auto gap-gutter">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed">MTP Smerokviz</div>
+<div class="flex gap-8">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:underline transition-all duration-200" href="#">Privatnost</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:underline transition-all duration-200" href="#">Pravila</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant hover:text-primary hover:underline transition-all duration-200" href="#">Kontakt</a>
+</div>
+<div class="font-label-md text-label-md text-on-surface-variant dark:text-on-surface-variant opacity-70">
+                MTP Smerokviz nije zvaničan Metropolitan stranica
+            </div>
+</div>
+</footer>
+<script>
+        // Simple micro-interaction for mobile menu (just for demo)
+        const mobileNav = document.getElementById('mobile-nav');
+        let isNavOpen = false;
+
+        function toggleNav() {
+            isNavOpen = !isNavOpen;
+            if (isNavOpen) {
+                mobileNav.style.transform = 'translateX(0)';
+            } else {
+                mobileNav.style.transform = 'translateX(-100%)';
+            }
+        }
+
+        // Add a trigger for mobile (hidden but functional for responsiveness check)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'm') toggleNav();
+        });
+    </script>
+</body></html>

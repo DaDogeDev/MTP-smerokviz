@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="sr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#dcb8ff",
+                    "background": "#faf8ff",
+                    "on-secondary-fixed": "#2c0051",
+                    "surface-bright": "#faf8ff",
+                    "surface-container": "#eaedff",
+                    "primary-container": "#0057ff",
+                    "error-container": "#ffdad6",
+                    "on-secondary-container": "#fffbff",
+                    "on-tertiary-container": "#9af9ff",
+                    "inverse-surface": "#283044",
+                    "on-secondary-fixed-variant": "#6700b5",
+                    "on-tertiary": "#ffffff",
+                    "on-primary-fixed-variant": "#003ab2",
+                    "on-primary-fixed": "#001550",
+                    "tertiary-fixed": "#63f7ff",
+                    "outline": "#737688",
+                    "primary": "#0043c8",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#dae2fd",
+                    "secondary-fixed": "#efdbff",
+                    "primary-fixed": "#dce1ff",
+                    "tertiary-container": "#00757a",
+                    "on-background": "#131b2e",
+                    "surface-container-low": "#f2f3ff",
+                    "inverse-on-surface": "#eef0ff",
+                    "tertiary": "#005a5e",
+                    "secondary-container": "#9c42f4",
+                    "on-tertiary-fixed-variant": "#004f53",
+                    "surface": "#faf8ff",
+                    "on-tertiary-fixed": "#002021",
+                    "tertiary-fixed-dim": "#00dce5",
+                    "outline-variant": "#c3c5d9",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#004ee7",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-primary": "#b6c4ff",
+                    "surface-variant": "#dae2fd",
+                    "secondary": "#821dda",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#434656",
+                    "on-surface": "#131b2e",
+                    "surface-container-high": "#e2e7ff",
+                    "on-primary-container": "#e5e8ff",
+                    "surface-dim": "#d2d9f4",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "stack-sm": "12px",
+                    "gutter": "24px",
+                    "margin-desktop": "48px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "stack-lg": "48px",
+                    "stack-md": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "button-text": ["Montserrat"],
+                    "label-md": ["Inter"],
+                    "headline-lg-mobile": ["Montserrat"],
+                    "body-md": ["Inter"],
+                    "headline-md": ["Montserrat"],
+                    "body-lg": ["Inter"],
+                    "display-lg": ["Montserrat"],
+                    "headline-lg": ["Montserrat"]
+            },
+            "fontSize": {
+                    "button-text": ["16px", {"lineHeight": "20px", "fontWeight": "700"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["28px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-lg": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.01em", "fontWeight": "700"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+        .dark .glass-card {
+            background: rgba(40, 48, 68, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .timeline-line {
+            background: linear-gradient(to bottom, #0043c8, #821dda, #005a5e);
+        }
+        .animate-pulse-subtle {
+            animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.02); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md overflow-x-hidden">
+<!-- TopNavBar Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-[20px] border-b border-white/10 shadow-[0_8px_32px_rgba(0,67,200,0.1)]">
+<div class="flex justify-between items-center px-margin-desktop h-20 max-w-container-max mx-auto">
+<div class="font-headline-md text-headline-md font-black text-primary">MTP Smerokviz</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-button-text text-button-text text-on-surface-variant hover:text-primary transition-colors" href="/">Početna</a>
+<a class="font-button-text text-button-text text-on-surface-variant hover:text-primary transition-colors" href="/smerovi">Smerovi</a>
+<a class="font-button-text text-button-text text-on-surface-variant hover:text-primary transition-colors" href="/kviz">Kviz</a>
+<a class="font-button-text text-button-text text-secondary border-b-2 border-secondary pb-1" href="#">Upis</a>
+</div>
+<button onclick="window.location.href='https://www.metropolitan.ac.rs/';" class="bg-primary text-on-primary font-button-text text-button-text px-6 py-3 rounded-xl hover:scale-105 transition-transform duration-200 active:scale-95 shadow-[0_4px_12px_rgba(0,67,200,0.2)]">
+                Prijavi se
+            </button>
+</div>
+</nav>
+<main class="mt-32 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<!-- Hero Header -->
+<header class="mb-stack-lg text-center md:text-left">
+<h1 class="font-display-lg text-display-lg text-primary mb-4 leading-tight">Postani deo <span class="text-secondary">budućnosti</span></h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Vaš put ka uspehu počinje ovde. Pratite naš jednostavan vodič od 4 koraka i osigurajte svoje mesto na Metropolitan univerzitetu.</p>
+</header>
+<!-- Step-by-Step Timeline Section -->
+<section class="relative py-stack-lg">
+<!-- Central Timeline Spine -->
+<div class="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 timeline-line opacity-20 transform -translate-x-1/2 hidden md:block"></div>
+<div class="flex flex-col gap-24">
+<!-- Step 1: Istraži -->
+<div class="relative flex flex-col md:flex-row items-center gap-12 group">
+<div class="absolute left-8 md:left-1/2 w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-xl z-10 transform -translate-x-1/2 shadow-lg border-4 border-background">1</div>
+<div class="w-full md:w-1/2 pr-0 md:pr-16 text-right hidden md:block">
+<div class="glass-card p-stack-md rounded-3xl shadow-xl hover:scale-[1.02] transition-transform duration-300 border-l-4 border-primary">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Istraži opcije</h3>
+<p class="text-on-surface-variant">Pregledaj naše studijske programe iz oblasti IT-a, Dizajna i Biznisa. Svaki program je kreiran u saradnji sa industrijom.</p>
+</div>
+</div>
+<div class="w-full md:w-1/2 pl-16 md:pl-16">
+<div class="relative aspect-video rounded-3xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A group of diverse university students sitting in a bright modern glass-walled library, collaborating on high-tech laptops. The atmosphere is academic and innovative, with cool blue and vibrant purple accent lighting reflecting off glass surfaces. High-key lighting emphasizes a clean, professional academic environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt9Va93Xisuiu2E4UPMzvTh4FI5zLZhSAFTuKrzfCxjmdV62HWiUxoXSy-vHKGh8qrKZqRt3okd-ke8ih6CJ8Cffym6-HanZ8Sk7gRM9CPSl9jTJ81Bb8yYovLnJw0C7IOufu023eOcXiUvo9ULT6ns8QJiMY6jDo9DyWYR8xW9-ZWQe2gZAj0M6yUUiVBxEyUb12QGVFoi55LS9hGt-CDDhqMxwyFWOCzMPnSdNn5y7yXvOCJ1hXfc3XtErmyLMn4xsCRJmpoUZSP"/>
+</div>
+<div class="md:hidden mt-6 glass-card p-stack-md rounded-3xl border-l-4 border-primary">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Istraži opcije</h3>
+<p class="text-on-surface-variant">Pregledaj naše studijske programe iz oblasti IT-a, Dizajna i Biznisa. Svaki program je kreiran u saradnji sa industrijom.</p>
+</div>
+</div>
+</div>
+<!-- Step 2: Poseti -->
+<div class="relative flex flex-col md:flex-row-reverse items-center gap-12 group">
+<div class="absolute left-8 md:left-1/2 w-12 h-12 bg-secondary text-on-secondary rounded-full flex items-center justify-center font-bold text-xl z-10 transform -translate-x-1/2 shadow-lg border-4 border-background">2</div>
+<div class="w-full md:w-1/2 pl-0 md:pl-16 text-left hidden md:block">
+<div class="glass-card p-stack-md rounded-3xl shadow-xl hover:scale-[1.02] transition-transform duration-300 border-r-4 border-secondary">
+<h3 class="font-headline-md text-headline-md text-secondary mb-2">Poseti nas</h3>
+<p class="text-on-surface-variant">Dođi na jedan od naših "Open Day" događaja. Oseti energiju kampusa i razgovaraj sa budućim kolegama.</p>
+</div>
+</div>
+<div class="w-full md:w-1/2 pr-16 md:pr-16">
+<div class="relative aspect-video rounded-3xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="An expansive modern university campus atrium featuring sleek glass railings and open-concept study spaces. The architecture is futuristic and clean with white surfaces and blue glowing accents. Soft daylight pours in from large skylights, creating a motivating and professional atmosphere that bridges tradition and technology." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJcT6vX3NT-UzvnIOR3Qp7MDMUL4Xcd4-qY4U4uDVW5nGPoaxVVS1BPhGgzAS1shRpvTuGHTcjNCQiw7NecH2hedS2b6zRRAOUuBMjsAdRTGlKp1nqu2HHhEN7sMrDBMU2ui8RgYsLst8mPRjH2fDoiuHlZgUO6WtgCu-MDnmLUSnHJ_79aOEVUHQuouaCa5_k68qa20X6WmwOAZ1mTdywNUSsuaF5TIMO_wpQUGPEiiplnaxn_q26ANRCvAPmjXArnDQBL5d6u-Gz"/>
+</div>
+<div class="md:hidden mt-6 glass-card p-stack-md rounded-3xl border-r-4 border-secondary">
+<h3 class="font-headline-md text-headline-md text-secondary mb-2">Poseti nas</h3>
+<p class="text-on-surface-variant">Dođi na jedan od naših "Open Day" događaja. Oseti energiju kampusa i razgovaraj sa budućim kolegama.</p>
+</div>
+</div>
+</div>
+<!-- Step 3: Pitaj -->
+<div class="relative flex flex-col md:flex-row items-center gap-12 group">
+<div class="absolute left-8 md:left-1/2 w-12 h-12 bg-tertiary-container text-on-tertiary-container rounded-full flex items-center justify-center font-bold text-xl z-10 transform -translate-x-1/2 shadow-lg border-4 border-background">3</div>
+<div class="w-full md:w-1/2 pr-0 md:pr-16 text-right hidden md:block">
+<div class="glass-card p-stack-md rounded-3xl shadow-xl hover:scale-[1.02] transition-transform duration-300 border-l-4 border-tertiary">
+<h3 class="font-headline-md text-headline-md text-tertiary mb-2">Pitaj sve</h3>
+<p class="text-on-surface-variant">Naš savetnički tim je tu da odgovori na sva pitanja o stipendijama, prijemnom ispitu i dokumentaciji.</p>
+</div>
+</div>
+<div class="w-full md:w-1/2 pl-16 md:pl-16">
+<div class="relative aspect-video rounded-3xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A professional consultation scene in a minimalist high-tech office. A friendly advisor is interacting with a prospective student over a sleek digital tablet. The background features blurred glass dividers and corporate blue accents. The lighting is warm yet crisp, conveying a sense of helpfulness and digital-first innovation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFbI0_nrT4xtbeR7yHggnWb6oqS4D5-DzhLJ1xrngMvQ3fXQ4eYqFyvvwMzGIFZpMzMGx-F3YhqBoX2EhcV4VclFEk2RgpMOYm5IYtkMtlXs3XCwxb1nCcsVBbUTZrRotq5fOypy_KnZwbit8Aag0udOF2bFguIeyUS3hZQNjz6mqGHuNPWhYJTBqScFRg98Qx5MtZaVhO-4VZDTKZnQtRzT25p4k4kUrChavqOp0_lcUwY7jk-XPIJMtpj2tbzMzwiGJ8WgrGl72T"/>
+</div>
+<div class="md:hidden mt-6 glass-card p-stack-md rounded-3xl border-l-4 border-tertiary">
+<h3 class="font-headline-md text-headline-md text-tertiary mb-2">Pitaj sve</h3>
+<p class="text-on-surface-variant">Naš savetnički tim je tu da odgovori na sva pitanja o stipendijama, prijemnom ispitu i dokumentaciji.</p>
+</div>
+</div>
+</div>
+<!-- Step 4: Prijavi se -->
+<div class="relative flex flex-col md:flex-row-reverse items-center gap-12 group">
+<div class="absolute left-8 md:left-1/2 w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-bold text-xl z-10 transform -translate-x-1/2 shadow-lg border-4 border-background animate-pulse-subtle">4</div>
+<div class="w-full md:w-1/2 pl-0 md:pl-16 text-left hidden md:block">
+<div class="glass-card p-stack-md rounded-3xl shadow-xl hover:scale-[1.02] transition-transform duration-300 border-r-4 border-primary">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Prijavi se</h3>
+<p class="text-on-surface-variant">Popuni online prijavu i započni svoju transformaciju. Tvoja karijera čeka na tebe.</p>
+<button class="mt-4 inline-flex items-center gap-2 text-primary font-button-text hover:gap-4 transition-all">
+                                Kreni odmah <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="w-full md:w-1/2 pr-16 md:pr-16">
+<div class="relative aspect-video rounded-3xl overflow-hidden shadow-2xl">
+<img class="w-full h-full object-cover" data-alt="A close-up shot of a modern workspace featuring a sleek laptop showing a successful registration page. A high-tech smartphone and a designer pen sit on the pristine desk surface. The scene is illuminated by neon blue and purple ambient glows, creating a celebratory and technologically advanced mood for a successful application." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBntbLcCaGFMtj_9ImArIbLSsM848yPR1tQ0LhDNIZIJFGLAznIss_hvpWzm47s9odcsIKqMVs50NqEn4Mo75Yr7FQsi76gfKUbuyXTTn40jYlnx7bJ2ZUFFmtiy5ZuWQBBjbm6tZg0HjytlJZ29aqtohOK69fjbkzddAk3fVqqjnU16u8T7nAFa4qRFkMDoMtNUrlTN6LUXb0lg3S9oKanggaBNZbaf-nnE6p1o3ZL1I5NQf21rytqSgst3PEnyosBH0PmOxMoKE9H"/>
+</div>
+<div class="md:hidden mt-6 glass-card p-stack-md rounded-3xl border-r-4 border-primary">
+<h3 class="font-headline-md text-headline-md text-primary mb-2">Prijavi se</h3>
+<p class="text-on-surface-variant">Popuni online prijavu i započni svoju transformaciju. Tvoja karijera čeka na tebe.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sources & Links Section -->
+<section class="mt-stack-lg grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Official Sources -->
+<div class="glass-card p-stack-md rounded-[32px]">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">description</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Korisni resursi</h2>
+</div>
+<ul class="space-y-4">
+<li>
+<a class="flex justify-between items-center p-4 rounded-2xl bg-surface-container hover:bg-surface-container-high transition-colors group" href="https://www.metropolitan.ac.rs/upis" target="_blank">
+<span class="font-label-md text-label-md">Zvanični portal za upis</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">open_in_new</span>
+</a>
+</li>
+<li>
+<a class="flex justify-between items-center p-4 rounded-2xl bg-surface-container hover:bg-surface-container-high transition-colors group" href="#">
+<span class="font-label-md text-label-md">Pravilnik o studiranju</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">download</span>
+</a>
+</li>
+<li>
+<a class="flex justify-between items-center p-4 rounded-2xl bg-surface-container hover:bg-surface-container-high transition-colors group" href="#">
+<span class="font-label-md text-label-md">Vodič za brucoše 2024/25</span>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">download</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Mandatory Educational Note -->
+<div class="glass-card p-stack-md rounded-[32px] border-l-4 border-error">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-10 h-10 rounded-xl bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">info</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-error">Važna napomena</h2>
+</div>
+<div class="font-body-md text-body-md space-y-4 text-on-surface-variant">
+<p>Obaveštavamo sve kandidate da je proces akreditacije za sve studijske programe Metropolitan univerziteta u potpunosti usklađen sa standardima Nacionalnog tela za akreditaciju i obezbeđenje kvaliteta u visokom obrazovanju (NAT).</p>
+<p>Upisni rokovi su ograničeni brojem slobodnih mesta po studijskom programu. Preporučujemo ranu prijavu kako biste rezervisali mesto i ostvarili pravo na benefite rane registracije.</p>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="mt-stack-lg glass-card p-12 rounded-[40px] text-center relative overflow-hidden">
+<div class="absolute inset-0 bg-primary opacity-[0.03]"></div>
+<div class="relative z-10">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-6">Spremni za prvi korak?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl mx-auto">Pridružite se hiljadama studenata koji su već promenili svoju karijeru uz Metropolitan.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button onclick="window.location.href='https://www.metropolitan.ac.rs/';" class="bg-primary text-on-primary font-button-text text-button-text px-10 py-5 rounded-2xl shadow-xl hover:scale-105 active:scale-95 transition-all">Prijavi se odmah</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-stack-lg bg-surface-container-lowest border-t border-outline-variant/30">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-desktop py-stack-md max-w-container-max mx-auto gap-gutter">
+<div class="font-headline-md text-headline-md font-bold text-primary">MTP Smerokviz</div>
+<p class="font-label-md text-label-md text-on-surface-variant">MTP Smerokviz nije zvaničan Metropolitan stranica</p>
+<div class="flex gap-6">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:underline transition-all duration-200" href="/privatnost">Privatnost</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:underline transition-all duration-200" href="/pravila">Pravila</a>
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary hover:underline transition-all duration-200" href="https://www.metropolitan.ac.rs/kontakt/">Kontakt</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll reveal interaction for timeline steps
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.group').forEach(step => {
+            step.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(step);
+        });
+    </script>
+</body></html>
